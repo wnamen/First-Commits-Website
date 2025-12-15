@@ -26,10 +26,9 @@ export default function AboutPage() {
 
             <ScrollReveal delay={200}>
               <p className="text-body-lg text-gray-400 max-w-2xl leading-relaxed">
-                First Commits is a guild for foundational operators—the builders
-                who turn early chaos into durable systems. We exist because the
-                most important work happens before the rest of the world is
-                watching.
+                First Commits started as a way for early hires to find each
+                other. What emerged was a community built on shared context,
+                trust, and proximity to the work.
               </p>
             </ScrollReveal>
           </div>
@@ -80,30 +79,27 @@ export default function AboutPage() {
               <div className="space-y-6 text-body-lg text-gray-400 leading-relaxed">
                 <ScrollReveal delay={100}>
                   <p>
-                    First Commits began with a simple observation: the best
-                    early-stage hires were rarely found through job boards or
-                    recruiters. They were found through whisper networks—quiet
-                    recommendations between founders and operators who had
-                    already proven themselves in the trenches.
+                    It started simply: a few operators who&apos;d worked at
+                    early-stage companies wanted to stay connected after they
+                    moved on. They started having dinner together. Then they
+                    started bringing friends.
                   </p>
                 </ScrollReveal>
 
                 <ScrollReveal delay={200}>
                   <p>
-                    We realized these networks existed, but they were scattered
-                    and inefficient. A founder in San Francisco might know the
-                    perfect VP of Engineering in New York, but the connection
-                    would never be made because no one thought to ask.
+                    What emerged wasn&apos;t a network—it was a community. People who
+                    understood what it meant to be the first hire, the first
+                    marketer, the first ops person at a company that didn&apos;t
+                    exist yet.
                   </p>
                 </ScrollReveal>
 
                 <ScrollReveal delay={300}>
                   <p>
-                    First Commits was created to formalize what was already
-                    happening informally—to create a structured space where
-                    operators with zero-to-one experience could find each other,
-                    vouch for each other, and build the next generation of
-                    category-defining companies together.
+                    We realized there was something valuable in that shared
+                    context. Not just for finding opportunities, but for having
+                    real conversations with people who understood the work.
                   </p>
                 </ScrollReveal>
 
@@ -224,9 +220,9 @@ export default function AboutPage() {
               <ScrollReveal delay={400} stagger>
                 <div className="grid grid-cols-2 gap-6">
                   {[
-                    { value: "250+", label: "Active Members" },
-                    { value: "15", label: "Countries" },
-                    { value: "80%", label: "Zero-to-One Experience" },
+                    { value: "250+", label: "Members" },
+                    { value: "12", label: "Cities" },
+                    { value: "30+", label: "Gatherings Held" },
                     { value: "100%", label: "Referral-Based" },
                   ].map((stat, index) => (
                     <div key={index} className="p-4 border border-gray-900">
@@ -465,9 +461,9 @@ export default function AboutPage() {
                 },
                 {
                   step: "04",
-                  title: "Contribution",
+                  title: "Participation",
                   description:
-                    "Members maintain their standing through active participation: sharing opportunities, making intros, contributing expertise.",
+                    "Members stay connected through showing up—at dinners, in conversations, for each other.",
                 },
               ].map((item, index) => (
                 <div key={index} className="relative">
@@ -519,7 +515,7 @@ export default function AboutPage() {
           <ScrollReveal delay={300}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button href="/apply" variant="primary" size="lg">
-                Request Access
+                Request an Introduction
               </Button>
               <Button href="/partner" variant="secondary" size="lg">
                 Partner With Us

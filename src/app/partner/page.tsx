@@ -23,17 +23,16 @@ export default function PartnerPage() {
 
             <ScrollReveal delay={100}>
               <h1 className="text-display lg:text-display-lg font-medium tracking-tight mb-8">
-                Your portfolio&apos;s
-                <span className="block text-gray-500">talent advantage</span>
+                A community your
+                <span className="block text-gray-500">early hires already gather in</span>
               </h1>
             </ScrollReveal>
 
             <ScrollReveal delay={200}>
               <p className="text-body-lg text-gray-400 max-w-2xl mb-12 leading-relaxed">
-                First Commits serves as the talent layer for category-defining
-                companies. Partner with us to give your portfolio access to
-                vetted operators, specialized working groups, and discreet
-                collaboration channels.
+                First Commits is where founding operators find each other. Partner
+                with us to support the people building inside your portfolio—through
+                community, not placement.
               </p>
             </ScrollReveal>
 
@@ -49,59 +48,33 @@ export default function PartnerPage() {
       {/* Value Proposition */}
       <ScrollSection className="py-32 lg:py-40">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-            <div>
-              <ScrollReveal>
-                <p className="text-overline uppercase text-gray-500 mb-4 tracking-widest">
-                  Strategic Partnership
-                </p>
-              </ScrollReveal>
+          <div className="max-w-3xl">
+            <ScrollReveal>
+              <p className="text-overline uppercase text-gray-500 mb-4 tracking-widest">
+                Why Partner
+              </p>
+            </ScrollReveal>
 
-              <ScrollReveal delay={100}>
-                <h2 className="text-headline lg:text-display font-medium tracking-tight mb-6">
-                  A private capital firm for talent—not another networking group
-                </h2>
-              </ScrollReveal>
+            <ScrollReveal delay={100}>
+              <h2 className="text-headline lg:text-display font-medium tracking-tight mb-6">
+                A trusted operator community—not a recruiting pipeline
+              </h2>
+            </ScrollReveal>
 
-              <ScrollReveal delay={200}>
-                <p className="text-body-lg text-gray-400 leading-relaxed">
-                  The difference between a good company and a great company
-                  often comes down to the first ten hires. First Commits exists
-                  to ensure your portfolio companies have access to the
-                  operators who can make that difference.
-                </p>
-              </ScrollReveal>
-            </div>
+            <ScrollReveal delay={200}>
+              <p className="text-body-lg text-gray-400 leading-relaxed mb-8">
+                First Commits started as a way for early hires to find each
+                other. What emerged was a community built on shared context,
+                trust, and proximity to the work.
+              </p>
+            </ScrollReveal>
 
-            <ScrollReveal delay={300} stagger>
-              <div className="space-y-6">
-                {[
-                  {
-                    metric: "72hrs",
-                    label: "Average time to first qualified introduction",
-                  },
-                  {
-                    metric: "85%",
-                    label: "Interview-to-offer rate for member placements",
-                  },
-                  {
-                    metric: "3.2x",
-                    label: "Retention rate vs. traditional recruiting",
-                  },
-                ].map((stat, index) => (
-                  <div
-                    key={index}
-                    className="p-6 border border-gray-900 hover:border-gray-700 transition-colors duration-500"
-                  >
-                    <p className="text-display font-medium tracking-tight mb-2">
-                      {stat.metric}
-                    </p>
-                    <p className="text-caption text-gray-500 uppercase tracking-wider">
-                      {stat.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
+            <ScrollReveal delay={300}>
+              <p className="text-body-lg text-gray-400 leading-relaxed">
+                When you partner with us, you&apos;re not accessing a talent
+                database. You&apos;re aligning with a community where your
+                portfolio founders and their future teammates already gather.
+              </p>
             </ScrollReveal>
           </div>
         </div>
@@ -115,13 +88,13 @@ export default function PartnerPage() {
           <div className="max-w-2xl mb-16">
             <ScrollReveal>
               <p className="text-overline uppercase text-gray-500 mb-4 tracking-widest">
-                Partnership Services
+                How We Work Together
               </p>
             </ScrollReveal>
 
             <ScrollReveal delay={100}>
               <h2 className="text-headline font-medium tracking-tight">
-                How we support your portfolio
+                Community-first, not transaction-first
               </h2>
             </ScrollReveal>
           </div>
@@ -130,9 +103,9 @@ export default function PartnerPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
-                  title: "Executive Search",
+                  title: "Gatherings",
                   description:
-                    "Access our network for C-suite and VP-level placements. Every candidate is pre-vetted and vouched for by current members.",
+                    "Invite your portfolio founders to our dinners and working sessions—intimate gatherings where operators share real context.",
                   icon: (
                     <div className="w-12 h-12 border border-gray-700 flex items-center justify-center mb-6">
                       <div className="w-4 h-4 bg-white" />
@@ -140,9 +113,9 @@ export default function PartnerPage() {
                   ),
                 },
                 {
-                  title: "Founding Teams",
+                  title: "Introductions",
                   description:
-                    "Build your founding team with operators who've done it before. We specialize in first ten hire placements.",
+                    "When the right opportunity emerges, we make introductions. No pipeline. No placement fees. Just trusted connections.",
                   icon: (
                     <div className="w-12 h-12 border border-gray-700 flex items-center justify-center mb-6">
                       <div className="grid grid-cols-2 gap-1">
@@ -155,9 +128,9 @@ export default function PartnerPage() {
                   ),
                 },
                 {
-                  title: "Working Groups",
+                  title: "Working Sessions",
                   description:
-                    "Specialized cohorts for specific challenges: GTM strategy, technical architecture, international expansion, and more.",
+                    "Operator-led conversations on specific challenges: GTM, hiring, fundraising, international expansion. No panels. Real talk.",
                   icon: (
                     <div className="w-12 h-12 border border-gray-700 flex items-center justify-center mb-6">
                       <div className="w-6 h-6 border border-white rotate-45" />
@@ -165,9 +138,9 @@ export default function PartnerPage() {
                   ),
                 },
                 {
-                  title: "Advisory Networks",
+                  title: "Founder Support",
                   description:
-                    "Connect portfolio companies with experienced advisors for fractional or board-level guidance.",
+                    "Your portfolio founders can tap into the community for candid advice from operators who've been through it.",
                   icon: (
                     <div className="w-12 h-12 border border-gray-700 flex items-center justify-center mb-6">
                       <div className="flex gap-2">
@@ -179,9 +152,9 @@ export default function PartnerPage() {
                   ),
                 },
                 {
-                  title: "Due Diligence",
+                  title: "References",
                   description:
-                    "Leverage our network for reference checks, market validation, and operator insights during your investment process.",
+                    "Need a gut check on a candidate? Our members give honest references because their reputation depends on it.",
                   icon: (
                     <div className="w-12 h-12 border border-gray-700 flex items-center justify-center mb-6">
                       <div className="w-6 h-6 border-2 border-white rounded-full" />
@@ -189,9 +162,9 @@ export default function PartnerPage() {
                   ),
                 },
                 {
-                  title: "Talent Events",
+                  title: "Co-Hosted Dinners",
                   description:
-                    "Exclusive gatherings that connect your portfolio founders with exceptional operators in intimate settings.",
+                    "Partner with us to host intimate dinners in your city—a way to show up for the community while meeting exceptional operators.",
                   icon: (
                     <div className="w-12 h-12 border border-gray-700 flex items-center justify-center mb-6">
                       <div className="w-4 h-4 bg-white rotate-45" />
@@ -246,25 +219,25 @@ export default function PartnerPage() {
 
               <ScrollReveal delay={100}>
                 <h2 className="text-headline lg:text-display font-medium tracking-tight mb-6">
-                  Build your team with operators who&apos;ve been there
+                  Find your people before you need to hire them
                 </h2>
               </ScrollReveal>
 
               <ScrollReveal delay={200}>
                 <p className="text-body-lg text-gray-400 mb-8 leading-relaxed">
-                  The hardest hires are the first ones. First Commits connects
-                  you with operators who understand the chaos of zero-to-one—and
-                  thrive in it.
+                  The best hires come from relationships that existed before you
+                  had the role to fill. First Commits is where those relationships
+                  start.
                 </p>
               </ScrollReveal>
 
               <ScrollReveal delay={300} stagger>
                 <ul className="space-y-4 mb-8">
                   {[
-                    "Skip the recruiter queue with direct operator introductions",
-                    "Access candidates who aren't actively looking but are open to the right opportunity",
-                    "Get candid references from operators who've worked together",
-                    "Join founder-only channels for hiring strategy and compensation benchmarks",
+                    "Meet operators at dinners before you need to recruit them",
+                    "Get honest references from people who've actually worked together",
+                    "Join conversations with founders facing the same challenges",
+                    "Build relationships that compound over time",
                   ].map((item, index) => (
                     <li key={index} className="flex items-start gap-4">
                       <span className="w-1.5 h-1.5 bg-white mt-2.5 flex-shrink-0" />
@@ -276,7 +249,7 @@ export default function PartnerPage() {
 
               <ScrollReveal delay={400}>
                 <Button href="/apply" variant="secondary">
-                  Apply as a Founder
+                  Request an Introduction
                 </Button>
               </ScrollReveal>
             </div>
@@ -297,15 +270,15 @@ export default function PartnerPage() {
 
               <ScrollReveal delay={100}>
                 <h2 className="text-headline lg:text-display font-medium tracking-tight mb-6">
-                  Your portfolio&apos;s unfair advantage in talent
+                  Support the people building inside your portfolio
                 </h2>
               </ScrollReveal>
 
               <ScrollReveal delay={200}>
                 <p className="text-body-lg text-gray-400 mb-8 leading-relaxed">
-                  Partner with First Commits to give every company in your
-                  portfolio access to a curated network of exceptional
-                  operators—before your competitors even know they&apos;re available.
+                  Partnership is about alignment, not leverage. When you support
+                  the community, you&apos;re investing in the relationships that help
+                  your founders succeed.
                 </p>
               </ScrollReveal>
 
@@ -313,20 +286,20 @@ export default function PartnerPage() {
                 <div className="grid sm:grid-cols-2 gap-6 mb-8">
                   {[
                     {
-                      title: "Portfolio Access",
-                      description: "All portfolio companies get direct access to our operator network",
+                      title: "Founder Invitations",
+                      description: "Invite your portfolio founders to our gatherings",
                     },
                     {
-                      title: "Priority Matching",
-                      description: "Partner portfolios receive priority for high-demand candidates",
+                      title: "Co-Hosted Dinners",
+                      description: "Partner on intimate operator dinners in your city",
                     },
                     {
-                      title: "Talent Intelligence",
-                      description: "Quarterly reports on market trends and compensation benchmarks",
+                      title: "Community Support",
+                      description: "Help sustain a community that supports early builders",
                     },
                     {
-                      title: "Co-branded Events",
-                      description: "Host exclusive talent events for your portfolio",
+                      title: "Organic Connections",
+                      description: "Let relationships form naturally, not transactionally",
                     },
                   ].map((item, index) => (
                     <div key={index} className="p-4 border border-gray-800">
@@ -389,9 +362,9 @@ export default function PartnerPage() {
 
           <ScrollReveal delay={100}>
             <blockquote className="text-headline lg:text-display font-medium tracking-tight mb-8 text-balance">
-              &ldquo;First Commits helped us hire our first three executives in under
-              60 days. Each one came with the credibility of someone who&apos;d
-              already vouched for them.&rdquo;
+              &ldquo;The best part isn&apos;t the introductions—it&apos;s the
+              conversations. I learn more at one First Commits dinner than
+              a month of networking events.&rdquo;
             </blockquote>
           </ScrollReveal>
 
@@ -399,9 +372,9 @@ export default function PartnerPage() {
             <div className="flex items-center justify-center gap-4">
               <div className="w-12 h-12 bg-gray-800 rounded-full" />
               <div className="text-left">
-                <p className="font-medium">Series A Founder</p>
+                <p className="font-medium">First Commits Member</p>
                 <p className="text-caption text-gray-500">
-                  Portfolio Company, Top-Tier VC
+                  Series A Founder
                 </p>
               </div>
             </div>
@@ -472,17 +445,17 @@ export default function PartnerPage() {
                   <option value="" className="bg-gray-900">
                     Select your primary interest
                   </option>
-                  <option value="portfolio" className="bg-gray-900">
-                    Portfolio-wide talent access
+                  <option value="dinners" className="bg-gray-900">
+                    Co-host dinners in our city
                   </option>
-                  <option value="executive" className="bg-gray-900">
-                    Executive search for specific company
+                  <option value="invitations" className="bg-gray-900">
+                    Invite portfolio founders to gatherings
                   </option>
-                  <option value="events" className="bg-gray-900">
-                    Co-branded talent events
+                  <option value="community" className="bg-gray-900">
+                    Support the community
                   </option>
                   <option value="other" className="bg-gray-900">
-                    Other partnership opportunity
+                    Something else
                   </option>
                 </select>
               </div>
@@ -493,7 +466,7 @@ export default function PartnerPage() {
                 </label>
                 <textarea
                   className="input-field min-h-32 resize-none"
-                  placeholder="What are you looking to accomplish? Any specific hiring challenges or opportunities?"
+                  placeholder="What brings you here? How do you imagine working together?"
                 />
               </div>
 

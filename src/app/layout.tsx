@@ -4,21 +4,21 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "First Commits | The Talent Layer for Category-Defining Companies",
+  title: "First Commits | A Private Community for Early Operators",
   description:
-    "A private, referral-only community for world-class early startup hires and foundational operators. Where exceptional builders find their next zero-to-one opportunity.",
+    "A private, referral-only community for early startup operators. Built on shared context, trust, and proximity to the work.",
   keywords: [
-    "startup talent",
-    "early stage hiring",
-    "foundational operators",
     "startup community",
-    "executive talent",
-    "zero to one",
+    "early stage operators",
+    "founding team",
+    "operator community",
+    "startup dinners",
+    "referral community",
   ],
   openGraph: {
     title: "First Commits",
     description:
-      "The talent layer that shapes category-defining companies. A private community for world-class foundational operators.",
+      "A private community for the first people who build companies. Built on referrals, trust, and shared context.",
     type: "website",
   },
 };

@@ -75,15 +75,15 @@ export default function ApplyPage() {
 
           <ScrollReveal delay={100}>
             <h1 className="text-display font-medium tracking-tight mb-6">
-              Application Received
+              Request Received
             </h1>
           </ScrollReveal>
 
           <ScrollReveal delay={200}>
             <p className="text-body-lg text-gray-400 mb-8 leading-relaxed">
-              Thank you for your interest in First Commits. We review every
-              application with care. If your background aligns with our
-              community, you&apos;ll hear from us within 2-3 weeks.
+              Thank you for reaching out. We read every request and will be
+              in touch if there&apos;s a connection to be made. This usually
+              takes 2-3 weeks.
             </p>
           </ScrollReveal>
 
@@ -104,21 +104,21 @@ export default function ApplyPage() {
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <ScrollReveal>
             <p className="text-overline uppercase text-gray-500 mb-4 tracking-widest">
-              Membership Application
+              Signal Interest
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={100}>
             <h1 className="text-display lg:text-display-lg font-medium tracking-tight mb-6">
-              Request Access
+              Request an Introduction
             </h1>
           </ScrollReveal>
 
           <ScrollReveal delay={200}>
             <p className="text-body-lg text-gray-400 max-w-2xl leading-relaxed">
-              Membership in First Commits is earned through reputation,
-              contribution, and craft. This application is the beginning of a
-              long-term partnership—not a transactional submission.
+              Membership is referral-based and intentionally limited. This is
+              less an application and more a way for us to learn who you are
+              and how we might know each other.
             </p>
           </ScrollReveal>
         </div>
@@ -257,10 +257,10 @@ export default function ApplyPage() {
             >
               <div className="mb-8">
                 <h2 className="text-headline font-medium tracking-tight mb-2">
-                  What have you built?
+                  Where did you join early?
                 </h2>
                 <p className="text-gray-500">
-                  We&apos;re looking for operators with proven zero-to-one experience.
+                  Tell us about your experience building at early-stage companies.
                 </p>
               </div>
 
@@ -353,13 +353,13 @@ export default function ApplyPage() {
 
                 <div>
                   <label className="block text-caption text-gray-500 uppercase tracking-wider mb-3">
-                    Notable Work
+                    Early-Stage Experience
                   </label>
                   <textarea
                     value={formData.notableWork}
                     onChange={(e) => updateField("notableWork", e.target.value)}
                     className="input-field min-h-32 resize-none"
-                    placeholder="Describe 1-2 projects where you built something meaningful from the ground up. What was your specific contribution? What was the outcome?"
+                    placeholder="Where did you join before it was obvious? What did you help build or operate at an early stage?"
                     required
                   />
                 </div>
@@ -376,17 +376,17 @@ export default function ApplyPage() {
             >
               <div className="mb-8">
                 <h2 className="text-headline font-medium tracking-tight mb-2">
-                  Why First Commits?
+                  How we might connect
                 </h2>
                 <p className="text-gray-500">
-                  Help us understand your connection to our community.
+                  Tell us about your relationship to the community.
                 </p>
               </div>
 
               <div className="space-y-8">
                 <div>
                   <label className="block text-caption text-gray-500 uppercase tracking-wider mb-3">
-                    Who Referred You?
+                    Do You Know a Member?
                   </label>
                   <input
                     type="text"
@@ -396,13 +396,13 @@ export default function ApplyPage() {
                     placeholder="Name of current member (if applicable)"
                   />
                   <p className="mt-2 text-caption text-gray-600">
-                    Referrals significantly strengthen applications
+                    Most members join through an existing connection
                   </p>
                 </div>
 
                 <div>
                   <label className="block text-caption text-gray-500 uppercase tracking-wider mb-3">
-                    Why First Commits?
+                    What are you looking for?
                   </label>
                   <textarea
                     value={formData.whyFirstCommits}
@@ -410,14 +410,14 @@ export default function ApplyPage() {
                       updateField("whyFirstCommits", e.target.value)
                     }
                     className="input-field min-h-32 resize-none"
-                    placeholder="What draws you to this community? What are you looking for at this stage of your career?"
+                    placeholder="What brings you here? What kind of community are you hoping to find?"
                     required
                   />
                 </div>
 
                 <div>
                   <label className="block text-caption text-gray-500 uppercase tracking-wider mb-3">
-                    What Will You Contribute?
+                    Anything else?
                   </label>
                   <textarea
                     value={formData.contribution}
@@ -425,8 +425,7 @@ export default function ApplyPage() {
                       updateField("contribution", e.target.value)
                     }
                     className="input-field min-h-32 resize-none"
-                    placeholder="Membership is maintained through active participation. How do you envision contributing to First Commits?"
-                    required
+                    placeholder="Anything else you'd like us to know about you or your work?"
                   />
                 </div>
               </div>
@@ -459,7 +458,7 @@ export default function ApplyPage() {
                   variant="primary"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? "Submitting..." : "Submit Application"}
+                  {isSubmitting ? "Sending..." : "Send Request"}
                 </Button>
               )}
             </div>
@@ -479,21 +478,21 @@ export default function ApplyPage() {
               {[
                 {
                   step: "01",
-                  title: "Review",
+                  title: "We Review",
                   description:
-                    "Your application is reviewed by our membership committee within 2-3 weeks.",
+                    "We read every request and look for connections to the existing community.",
                 },
                 {
                   step: "02",
-                  title: "Conversation",
+                  title: "We Connect",
                   description:
-                    "Selected candidates are invited for a brief conversation with a current member.",
+                    "If there's a fit, we'll introduce you to a member who can vouch for the community.",
                 },
                 {
                   step: "03",
-                  title: "Decision",
+                  title: "We Follow Up",
                   description:
-                    "You'll receive a decision within one week of your conversation.",
+                    "Either way, you'll hear from us within a few weeks.",
                 },
               ].map((item, index) => (
                 <div key={index}>

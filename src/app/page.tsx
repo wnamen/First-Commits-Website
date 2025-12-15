@@ -26,18 +26,18 @@ export default function Home() {
 
             <ScrollReveal delay={200}>
               <h1 className="text-display lg:text-display-lg xl:text-display-xl font-medium tracking-tight mb-8">
-                The talent layer for
+                For the people behind
                 <span className="block text-gray-500">
-                  category-defining companies
+                  the first commits
                 </span>
               </h1>
             </ScrollReveal>
 
             <ScrollReveal delay={400}>
               <p className="text-body-lg text-gray-400 max-w-2xl mb-12 leading-relaxed">
-                First Commits is a private, referral-only community for
-                world-class early startup hires and foundational operators. Where
-                exceptional builders find their next zero-to-one opportunity.
+                A private community for early operators—the ones who joined
+                before the org chart, before the hype. Built on referrals, trust,
+                and shared context.
               </p>
             </ScrollReveal>
 
@@ -86,31 +86,30 @@ export default function Home() {
             <div>
               <ScrollReveal delay={100}>
                 <p className="text-overline uppercase text-gray-500 mb-4 tracking-widest">
-                  Rare Access
+                  Shared Context
                 </p>
               </ScrollReveal>
 
               <ScrollReveal delay={200}>
                 <h2 className="text-headline lg:text-display font-medium tracking-tight mb-6">
-                  Enter the chamber where early builders speak the same fluent
-                  language of execution
+                  A place where early builders already speak the same language
                 </h2>
               </ScrollReveal>
 
               <ScrollReveal delay={300}>
                 <p className="text-body-lg text-gray-400 mb-8 leading-relaxed">
-                  First Commits isn&apos;t a network. It&apos;s a chamber—a convergence
-                  point for operators who understand that the most important work
-                  happens before the rest of the world is watching.
+                  First Commits is where operators who&apos;ve shipped, scaled, and
+                  stayed find each other. Not a network—a community built on the
+                  understanding that the hardest work happens before anyone&apos;s watching.
                 </p>
               </ScrollReveal>
 
               <ScrollReveal delay={400} stagger>
                 <ul className="space-y-4">
                   {[
-                    "Vetted operators with proven zero-to-one experience",
-                    "Deep trust networks built on mutual respect",
-                    "A standard of excellence that isn't advertised—only recognized",
+                    "Operators who were there at the beginning",
+                    "Trust built through referrals and shared experience",
+                    "A standard that isn't advertised—only recognized",
                   ].map((item, index) => (
                     <li key={index} className="flex items-start gap-4">
                       <span className="w-1.5 h-1.5 bg-white mt-2.5 flex-shrink-0" />
@@ -130,9 +129,9 @@ export default function Home() {
           <ScrollReveal stagger>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
               {[
-                { value: "250+", label: "Vetted Operators" },
-                { value: "50+", label: "Portfolio Companies" },
-                { value: "$2B+", label: "Capital Represented" },
+                { value: "250+", label: "Members" },
+                { value: "12", label: "Cities" },
+                { value: "30+", label: "Gatherings Held" },
                 { value: "100%", label: "Referral-Based" },
               ].map((stat, index) => (
                 <div key={index} className="text-center lg:text-left">
@@ -187,9 +186,9 @@ export default function Home() {
                   ),
                 },
                 {
-                  title: "Contribution Standards",
+                  title: "Active Participation",
                   description:
-                    "Membership is maintained through active participation. Share deals, make introductions, contribute expertise. The community thrives on reciprocity.",
+                    "Membership is maintained through showing up—at dinners, in conversations, for each other. The community thrives on presence and reciprocity.",
                   icon: (
                     <div className="w-12 h-12 border border-gray-700 flex items-center justify-center">
                       <div className="w-6 h-px bg-white" />
@@ -224,7 +223,7 @@ export default function Home() {
         </div>
       </ScrollSection>
 
-      {/* The Work Section */}
+      {/* Gatherings Section */}
       <ScrollSection className="py-32 lg:py-40 bg-gray-950">
         <div className="absolute inset-0 dot-pattern opacity-30" />
 
@@ -233,32 +232,31 @@ export default function Home() {
             <div className="order-2 lg:order-1">
               <ScrollReveal>
                 <p className="text-overline uppercase text-gray-500 mb-4 tracking-widest">
-                  The Work
+                  How We Gather
                 </p>
               </ScrollReveal>
 
               <ScrollReveal delay={100}>
                 <h2 className="text-headline lg:text-display font-medium tracking-tight mb-6">
-                  Where zero-to-one operators find their next defining role
+                  Small, intentional gatherings for people who build
                 </h2>
               </ScrollReveal>
 
               <ScrollReveal delay={200}>
                 <p className="text-body-lg text-gray-400 mb-8 leading-relaxed">
-                  The most consequential startup roles never hit the market.
-                  They&apos;re filled through trusted networks—conversations between
-                  founders and operators who&apos;ve already proven they can build
-                  from nothing.
+                  We don&apos;t host events. We convene. Closed-door conversations,
+                  operator-led dinners, and working sessions where early builders
+                  share context that doesn&apos;t exist anywhere else.
                 </p>
               </ScrollReveal>
 
               <ScrollReveal delay={300}>
                 <div className="space-y-6">
                   {[
-                    "Founding team roles at backed startups",
-                    "Executive positions at scaling companies",
-                    "Advisory and board opportunities",
-                    "Operating partner positions at venture firms",
+                    "Intimate dinners in twelve cities",
+                    "Closed-door working sessions by function",
+                    "Founder and operator roundtables",
+                    "Off-the-record conversations",
                   ].map((item, index) => (
                     <div
                       key={index}
@@ -359,12 +357,12 @@ export default function Home() {
         </div>
       </ScrollSection>
 
-      {/* Partners Preview */}
+      {/* Members From */}
       <ScrollSection fullHeight={false} className="py-24 lg:py-32 bg-gray-950">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <ScrollReveal>
             <p className="text-center text-caption text-gray-600 uppercase tracking-widest mb-12">
-              Trusted by operators from
+              Members have built at
             </p>
           </ScrollReveal>
 
@@ -413,7 +411,7 @@ export default function Home() {
 
           <ScrollReveal delay={200}>
             <p className="text-body-lg text-gray-500 max-w-xl mx-auto">
-              The talent layer for category-defining companies.
+              A private community for the first people who build companies.
             </p>
           </ScrollReveal>
 
@@ -424,7 +422,7 @@ export default function Home() {
                 className="inline-flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-300 group"
               >
                 <span className="text-caption uppercase tracking-widest">
-                  Begin your application
+                  Request an introduction
                 </span>
                 <span className="w-8 h-px bg-gray-700 group-hover:w-12 group-hover:bg-white transition-all duration-300" />
               </Link>

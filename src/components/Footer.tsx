@@ -23,9 +23,9 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mt-6 text-gray-500 text-body max-w-sm leading-relaxed">
-              The talent layer for category-defining companies. A private
-              community where exceptional operators find their next zero-to-one
-              opportunity.
+              A private community for early operators—the ones who joined
+              before the org chart, before the hype. Built on referrals, trust,
+              and shared context.
             </p>
           </div>
 
@@ -80,10 +80,10 @@ export default function Footer() {
                   <span className="text-gray-600">Members</span>
                 </li>
                 <li>
-                  <span className="text-gray-600">Events</span>
+                  <span className="text-gray-600">Gatherings</span>
                 </li>
                 <li>
-                  <span className="text-gray-600">Resources</span>
+                  <span className="text-gray-600">Cities</span>
                 </li>
               </ul>
             </div>
