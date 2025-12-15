@@ -10,7 +10,6 @@ interface FormData {
   fullName: string;
   email: string;
   linkedIn: string;
-  location: string;
   // Step 2: Experience
   currentRole: string;
   yearsExperience: string;
@@ -28,7 +27,6 @@ export default function ApplyPage() {
     fullName: "",
     email: "",
     linkedIn: "",
-    location: "",
     currentRole: "",
     yearsExperience: "",
     operatorType: "",
@@ -231,19 +229,6 @@ export default function ApplyPage() {
                   />
                 </div>
 
-                <div>
-                  <label className="block text-caption text-gray-500 uppercase tracking-wider mb-3">
-                    Location
-                  </label>
-                  <input
-                    type="text"
-                    value={formData.location}
-                    onChange={(e) => updateField("location", e.target.value)}
-                    className="input-field"
-                    placeholder="City, Country"
-                    required
-                  />
-                </div>
               </div>
             </div>
 
