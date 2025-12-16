@@ -5,9 +5,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Uncomment and update if deploying to a repo subdirectory (e.g., username.github.io/repo-name)
-  // basePath: '/First-Commits-Website',
-  // assetPrefix: '/First-Commits-Website/',
+  // Required for GitHub Pages subdirectory deployment
+  basePath: '/First-Commits-Website',
+  assetPrefix: '/First-Commits-Website/',
 }
 
 module.exports = nextConfig
