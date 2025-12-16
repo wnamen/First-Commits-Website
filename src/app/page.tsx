@@ -34,7 +34,7 @@ export default function Home() {
         <div className={styles.navInner}>
           <span className={styles.logo}>First Commits</span>
           <Link href="/apply" className={styles.navLink}>
-            Apply
+            Request Invitation
           </Link>
         </div>
       </nav>
@@ -141,8 +141,8 @@ export default function Home() {
               <span className={styles.valueNumber}>03</span>
               <h3 className={styles.valueTitle}>Craft</h3>
               <p className={styles.valueDesc}>
-                Conversations about the actual work. Building products. Scaling teams.
-                The details that don't make the headlines.
+                Intimate dinners, small gatherings, and candid conversations with
+                people who've built what you're building. No panels. No pitches.
               </p>
             </div>
             <div className={`${styles.valueItem} reveal`}>
@@ -157,7 +157,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Social Proof Section */}
+      {/* Social Proof Section - Coming Soon
       <section className={styles.sectionProof}>
         <div className="container">
           <div className="reveal">
@@ -182,6 +182,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Exclusivity Section */}
       <section className={styles.section}>
@@ -202,7 +203,7 @@ export default function Home() {
               involvement, demonstrable impact when things were still uncertain.
             </p>
             <p className="reveal text-muted">
-              We accept applications quarterly. If you're not accepted immediately,
+              We accept applications on a rolling basis. If you're not accepted immediately,
               you may be added to our waitlist for future consideration.
             </p>
           </div>
@@ -222,7 +223,7 @@ export default function Home() {
             </p>
             <div className="reveal">
               <Link href="/apply" className="btn btn-primary">
-                Apply Now
+                Request Invitation
               </Link>
             </div>
           </div>

@@ -21,11 +21,35 @@ export default function Apply() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/firstcommits@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          role: formData.role,
+          company: formData.company,
+          linkedin: formData.linkedin || 'Not provided',
+          why: formData.why,
+          referral: formData.referral || 'None',
+          _subject: `First Commits Application: ${formData.name}`,
+        }),
+      })
 
-    setIsSubmitting(false)
-    setIsSubmitted(true)
+      if (response.ok) {
+        setIsSubmitted(true)
+      } else {
+        alert('There was an error submitting your application. Please try again.')
+      }
+    } catch {
+      alert('There was an error submitting your application. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (
@@ -55,7 +79,7 @@ export default function Apply() {
             <h1 className={styles.confirmationTitle}>Thank you.</h1>
             <p className={styles.confirmationText}>
               Your application has been received and will be reviewed by our
-              membership committee. We review applications quarterly and will be
+              membership committee. We review applications on a rolling basis and will be
               in touch if there's a fit.
             </p>
             <p className={styles.confirmationNote}>
@@ -147,9 +171,7 @@ export default function Apply() {
                 className={styles.select}
               >
                 <option value="">Select your role type</option>
-                <option value="founding-engineer">Founding Engineer</option>
                 <option value="early-engineer">Early Engineer (1-10)</option>
-                <option value="founding-designer">Founding Designer</option>
                 <option value="early-designer">Early Designer (1-10)</option>
                 <option value="early-product">Early Product (1-10)</option>
                 <option value="early-ops">Early Operations (1-10)</option>
@@ -250,7 +272,7 @@ export default function Apply() {
       <footer className={styles.footer}>
         <div className={styles.footerInner}>
           <span className={styles.footerText}>
-            Questions? Reach out to membership@firstcommits.com
+            Questions? Reach out to firstcommits@gmail.com
           </span>
         </div>
       </footer>
