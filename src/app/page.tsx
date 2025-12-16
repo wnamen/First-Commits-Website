@@ -1,13 +1,13 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import Link from 'next/link'
 import styles from './page.module.css'
 
 export default function Home() {
-  const sectionsRef = useRef<HTMLDivElement[]>([])
-
   useEffect(() => {
+    const revealElements = document.querySelectorAll('.reveal')
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -22,18 +22,10 @@ export default function Home() {
       }
     )
 
-    sectionsRef.current.forEach((section) => {
-      if (section) observer.observe(section)
-    })
+    revealElements.forEach((el) => observer.observe(el))
 
     return () => observer.disconnect()
   }, [])
-
-  const addToRefs = (el: HTMLDivElement | null) => {
-    if (el && !sectionsRef.current.includes(el)) {
-      sectionsRef.current.push(el)
-    }
-  }
 
   return (
     <main className={styles.main}>
@@ -68,7 +60,7 @@ export default function Home() {
 
       {/* Ethos Section */}
       <section className={styles.section}>
-        <div className={`container ${styles.ethosContent}`} ref={addToRefs}>
+        <div className={`container ${styles.ethosContent}`}>
           <div className="reveal">
             <span className={styles.sectionLabel}>The Ethos</span>
             <div className={styles.dividerShort}></div>
@@ -97,7 +89,7 @@ export default function Home() {
 
       {/* What We Mean Section */}
       <section className={styles.sectionDark}>
-        <div className="container" ref={addToRefs}>
+        <div className="container">
           <div className="reveal">
             <span className={styles.sectionLabelLight}>What "First Commits" Means</span>
             <div className={styles.dividerShortLight}></div>
@@ -123,7 +115,7 @@ export default function Home() {
 
       {/* Value Section */}
       <section className={styles.section}>
-        <div className="container" ref={addToRefs}>
+        <div className="container">
           <div className="reveal">
             <span className={styles.sectionLabel}>What You Get</span>
             <div className={styles.dividerShort}></div>
@@ -167,7 +159,7 @@ export default function Home() {
 
       {/* Social Proof Section */}
       <section className={styles.sectionProof}>
-        <div className="container" ref={addToRefs}>
+        <div className="container">
           <div className="reveal">
             <p className={styles.proofLabel}>
               Members have made their first commits at
@@ -193,7 +185,7 @@ export default function Home() {
 
       {/* Exclusivity Section */}
       <section className={styles.section}>
-        <div className={`container ${styles.exclusivityContent}`} ref={addToRefs}>
+        <div className={`container ${styles.exclusivityContent}`}>
           <div className="reveal">
             <span className={styles.sectionLabel}>How It Works</span>
             <div className={styles.dividerShort}></div>
@@ -219,7 +211,7 @@ export default function Home() {
 
       {/* Final CTA Section */}
       <section className={styles.sectionFinal}>
-        <div className="container" ref={addToRefs}>
+        <div className="container">
           <div className={styles.finalContent}>
             <h2 className={`${styles.finalTitle} reveal`}>
               If this resonates, you<br />
