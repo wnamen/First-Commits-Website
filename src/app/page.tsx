@@ -43,8 +43,8 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>
-            For those who build<br />
-            before it's obvious.
+            For those before<br />
+            it was built.
           </h1>
           <p className={styles.heroSubtitle}>
             An invite-only community for startup early hires.
@@ -218,9 +218,6 @@ export default function Home() {
               If this resonates, you<br />
               probably belong here.
             </h2>
-            <p className={`${styles.finalSubtitle} reveal`}>
-              Applications are open.
-            </p>
             <div className="reveal">
               <Link href="/apply" className="btn btn-primary">
                 Request Invitation

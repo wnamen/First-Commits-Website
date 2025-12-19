@@ -5,9 +5,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Required for GitHub Pages subdirectory deployment
-  basePath: '/First-Commits-Website',
-  assetPrefix: '/First-Commits-Website/',
 }
 
 module.exports = nextConfig
