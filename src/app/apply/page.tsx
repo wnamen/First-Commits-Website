@@ -126,10 +126,6 @@ export default function Apply() {
               membership committee. We review applications on a rolling basis and will be
               in touch if there's a fit.
             </p>
-            <p className={styles.confirmationNote}>
-              We don't send rejection emails. If you haven't heard from us within
-              90 days, you're welcome to reapply with updated information.
-            </p>
             <Link href="/" className={styles.backLink}>
               Return Home
             </Link>
