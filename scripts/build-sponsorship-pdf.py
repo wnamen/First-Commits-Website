@@ -23,7 +23,7 @@ WIDTH, HEIGHT = 612, 792
 MARGIN = 48
 CONTENT_WIDTH = WIDTH - 2 * MARGIN
 # Update when the sponsorship document changes, not on an unchanged rebuild.
-LAST_UPDATED = date(2026, 9, 1)
+LAST_UPDATED = date(2026, 9, 18)
 
 
 def color(token):
@@ -97,14 +97,10 @@ def offer_page(doc, display, regular):
     title_width = display.text_length(title, fontsize=title_size)
     assert title_width <= CONTENT_WIDTH
     paragraph(page, title, MARGIN, 116, CONTENT_WIDTH, display, title_size, FOREST)
-    paragraph(page,
-              "Support founding engineers and first technical hires building "
-              "their companies' earliest products and systems.",
-              MARGIN, 177, CONTENT_WIDTH, regular, 12)
 
     page.draw_rect(pymupdf.Rect(MARGIN, 245, 564, 313), color=None, fill=LIME)
     paragraph(page, "$5,000", 64, 264, 150, display, 26, FOREST)
-    term = "Annual sponsorship / 12 months"
+    term = "Annual sponsorship"
     term_width = regular.text_length(term, fontsize=11)
     term_x = WIDTH - MARGIN - 16 - term_width
     paragraph(page, term, term_x, 272, term_width + 1, regular, 11, FOREST)
@@ -159,8 +155,8 @@ def overview_page(doc, display, regular):
     paragraph(page, "The First Commits community", MARGIN, 108,
               CONTENT_WIDTH, display, 26, FOREST)
     paragraph(page,
-              "First Commits brings together founding engineers and first technical "
-              "hires building their companies' earliest products and systems. "
+              "First Commits brings together founding engineers building their "
+              "companies' earliest products and systems. "
               "Through small gatherings and an active community Slack, members "
               "share experience, find peers, and build lasting relationships.",
               MARGIN, 158, CONTENT_WIDTH, regular, 12)
@@ -171,8 +167,6 @@ def overview_page(doc, display, regular):
         paragraph(page, caption, x, 288, 210, regular, 10, FOREST)
     paragraph(page, "Companies represented by our members", MARGIN, 340,
               CONTENT_WIDTH, display, 13, FOREST)
-    paragraph(page, "Founding engineers and first technical hires from across the startup community.",
-              MARGIN, 367, CONTENT_WIDTH, regular, 10)
     # Reuse the homepage's member-company roster; this is not a sponsor list.
     source = (ROOT / "src/app/page.tsx").read_text()
     match = re.search(r"const representedStartups = \[(.*?)\]", source, re.S)
@@ -183,7 +177,7 @@ def overview_page(doc, display, regular):
     rows = math.ceil(len(companies) / 4)
     for index, company in enumerate(companies):
         column, row = divmod(index, rows)
-        bottom = paragraph(page, company, MARGIN + column * 132, 402 + row * 12,
+        bottom = paragraph(page, company, MARGIN + column * 132, 379 + row * 12,
                            120, regular, 8.6)
         assert bottom < 665, "Company roster exceeds overview page"
     footer(page, regular, 1)
@@ -195,16 +189,14 @@ def blank(page, label, x, top, width, regular):
 
 
 def agreement_page(doc, display, regular):
-    page = new_page(doc, display, regular, "AGREEMENT / DRAFT")
+    page = new_page(doc, display, regular, "AGREEMENT")
     paragraph(page, "Sponsorship Agreement", MARGIN, 101,
               CONTENT_WIDTH, display, 27, FOREST)
-    paragraph(page, "Draft for review. Complete all fields before signing.",
-              MARGIN, 145, CONTENT_WIDTH, regular, 10)
-    paragraph(page, "Organizer", MARGIN, 174, CONTENT_WIDTH, regular, 8)
-    paragraph(page, "First Commits, LLC", MARGIN, 188, CONTENT_WIDTH, regular, 12, FOREST)
-    blank(page, "Sponsor legal name (Sponsor)", MARGIN, 214, CONTENT_WIDTH, regular)
-    blank(page, "Sponsorship start date", MARGIN, 254, 246, regular)
-    blank(page, "Payment due date (agreed by both parties)", 318, 254, 246, regular)
+    paragraph(page, "Organizer", MARGIN, 151, CONTENT_WIDTH, regular, 8)
+    paragraph(page, "First Commits, LLC", MARGIN, 165, CONTENT_WIDTH, regular, 12, FOREST)
+    blank(page, "Sponsor legal name (Sponsor)", MARGIN, 191, CONTENT_WIDTH, regular)
+    blank(page, "Sponsorship start date", MARGIN, 231, 246, regular)
+    blank(page, "Payment due date (agreed by both parties)", 318, 231, 246, regular)
     terms = [
         ("1. Fee and term",
          "Sponsor agrees to pay Organizer US $5,000 by the payment due date above "
@@ -222,7 +214,7 @@ def agreement_page(doc, display, regular):
          "guarantee hires, sales, or member participation. Changes, rescheduling, or "
          "cancellation and any related refund must be agreed in writing by both parties."),
     ]
-    top = 304
+    top = 281
     for title, text in terms:
         top = paragraph(page, title, MARGIN, top, CONTENT_WIDTH, display, 10.5, FOREST)
         top = paragraph(page, text, MARGIN, top + 4, CONTENT_WIDTH, regular, 9.5) + 12
