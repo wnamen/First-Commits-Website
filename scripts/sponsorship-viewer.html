@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <title>Sponsorship Package | First Commits</title>
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; color: #163427; background: #fdfffb; font: 16px system-ui, sans-serif; }
+      header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.5rem; }
+      h1 { margin: 0; font-size: 1rem; }
+      a { color: inherit; }
+      #download { flex-shrink: 0; padding: .6rem .9rem; background: #e3ef88; border-radius: .25rem; }
+      a:focus-visible { outline: 2px solid #163427; outline-offset: 3px; }
+      iframe { display: block; border: 0; width: 100%; height: calc(100dvh - 80px); min-height: 480px; }
+      noscript p { padding: 1.5rem; }
+      @media (max-width: 480px) { header { padding: 1rem; } h1 { font-size: .9rem; } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>First Commits sponsorship package</h1>
+      <a id="download" hidden download="first-commits-sponsorship.pdf">Download PDF</a>
+    </header>
+    <main>
+      <iframe id="preview" title="First Commits sponsorship package PDF" hidden></iframe>
+      <noscript><p>Enable JavaScript to view and download the package, or contact <a href="mailto:partnerships@firstcommits.com">partnerships@firstcommits.com</a>.</p></noscript>
+    </main>
+    <script>
+      // The PDF has no standalone public URL. This page's noindex directive
+      // applies to the shareable URL; the viewer/download use a browser-local blob.
+      const bytes = Uint8Array.from(atob('__PDF_BASE64__'), character => character.charCodeAt(0));
+      const pdfUrl = URL.createObjectURL(new Blob([bytes], { type: 'application/pdf' }));
+      const download = document.getElementById('download');
+      const preview = document.getElementById('preview');
+      download.href = pdfUrl;
+      download.hidden = false;
+      preview.src = pdfUrl;
+      preview.hidden = false;
+    </script>
+  </body>
+</html>
