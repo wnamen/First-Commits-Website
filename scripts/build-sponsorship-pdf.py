@@ -237,7 +237,7 @@ def build():
     overview_page(doc, display, regular)
     offer_page(doc, display, regular)
     agreement_page(doc, display, regular)
-    doc.set_metadata({"title": "Sponsorship Package | First Commits",
+    doc.set_metadata({"title": "First Commits Sponsorship Package",
                       "author": "First Commits",
                       "subject": "Community overview, annual sponsorship, and draft agreement"})
     doc.save(OUTPUT, garbage=4, deflate=True)
