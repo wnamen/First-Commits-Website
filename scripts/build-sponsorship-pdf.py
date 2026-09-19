@@ -194,7 +194,7 @@ def agreement_page(doc, display, regular):
               CONTENT_WIDTH, display, 27, FOREST)
     paragraph(page, "Organizer", MARGIN, 151, CONTENT_WIDTH, regular, 8)
     paragraph(page, "First Commits, LLC", MARGIN, 165, CONTENT_WIDTH, regular, 12, FOREST)
-    blank(page, "Sponsor legal name (Sponsor)", MARGIN, 191, CONTENT_WIDTH, regular)
+    blank(page, "Sponsor legal name", MARGIN, 191, CONTENT_WIDTH, regular)
     blank(page, "Sponsorship start date", MARGIN, 231, 246, regular)
     blank(page, "Payment due date (agreed by both parties)", 318, 231, 246, regular)
     terms = [
