@@ -5,7 +5,11 @@ import Link from 'next/link'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import LogoCarousel from '@/components/LogoCarousel'
+import { buildMailto, postJson } from '@/utils/submit-form'
 import styles from './sponsors.module.css'
+
+const CONTACT_EMAIL = 'partnerships@firstcommits.com'
+const FORMSUBMIT_URL = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`
 
 const partnerLogos = [
   { src: '/bessemer_logo.png', alt: 'Bessemer Venture Partners', large: true },
@@ -33,36 +37,30 @@ export default function Partners() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [failedMailto, setFailedMailto] = useState<string | null>(null)
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setFailedMailto(null)
 
-    try {
-      const response = await fetch('https://formsubmit.co/ajax/partnerships@firstcommits.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          company: formData.company,
-          message: formData.message,
-          _subject: `First Commits Partnership Inquiry: ${formData.company}`,
-        }),
-      })
+    const subject = `First Commits Partnership Inquiry: ${formData.company}`
+    const sent = await postJson(
+      FORMSUBMIT_URL,
+      { ...formData, _subject: subject },
+      { attempts: 2 }
+    )
 
-      if (response.ok) {
-        setIsSubmitted(true)
-      } else {
-        alert('There was an error submitting your inquiry. Please try again.')
-      }
-    } catch {
-      alert('There was an error submitting your inquiry. Please try again.')
-    } finally {
-      setIsSubmitting(false)
+    setIsSubmitting(false)
+    if (sent) {
+      setIsSubmitted(true)
+    } else {
+      setFailedMailto(buildMailto(CONTACT_EMAIL, subject, {
+        Name: formData.name,
+        Email: formData.email,
+        Company: formData.company,
+        Message: formData.message,
+      }))
     }
   }
 
@@ -231,6 +229,12 @@ export default function Partners() {
               >
                 {isSubmitting ? 'Submitting...' : 'Let\'s Connect!'}
               </button>
+              {failedMailto && (
+                <p className={styles.submitError} role="alert">
+                  We couldn&apos;t send your inquiry. Please try again, or{' '}
+                  <a href={failedMailto}>email it to {CONTACT_EMAIL}</a> instead.
+                </p>
+              )}
             </div>
           </form>
         </div>

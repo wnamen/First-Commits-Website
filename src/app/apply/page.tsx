@@ -4,7 +4,12 @@ import { useEffect, useRef, useState, FormEvent } from 'react'
 import Link from 'next/link'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
+import { buildMailto, postJson } from '@/utils/submit-form'
 import styles from './apply.module.css'
+
+const CONTACT_EMAIL = 'community@firstcommits.com'
+const FORMSUBMIT_URL = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`
+const MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/79r4dmjd9qouki92vce958v34ck88acr'
 
 const roleOptions = [
   { value: 'founding-engineer-1-5', label: 'Founding Engineer (#1-5)' },
@@ -26,6 +31,7 @@ export default function Apply() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [failedMailto, setFailedMailto] = useState<string | null>(null)
   const [isRoleOpen, setIsRoleOpen] = useState(false)
   const roleRef = useRef<HTMLDivElement>(null)
 
@@ -58,6 +64,7 @@ export default function Apply() {
     }
 
     setIsSubmitting(true)
+    setFailedMailto(null)
 
     const payload = {
       name: formData.name,
@@ -69,35 +76,28 @@ export default function Apply() {
       referral: formData.referral || 'None',
     }
 
-    try {
-      const response = await fetch('https://formsubmit.co/ajax/community@firstcommits.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          ...payload,
-          _subject: `First Commits Application: ${formData.name}`,
-        }),
-      })
+    const subject = `First Commits Application: ${formData.name}`
 
-      // Send to Make.com webhook for downstream automation (e.g. Slack); best-effort so a Make outage doesn't block the application.
-      fetch('https://hook.us2.make.com/79r4dmjd9qouki92vce958v34ck88acr', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      }).catch(() => {})
+    // Send to FormSubmit (email) and Make.com (Slack automation) in parallel. Either one
+    // landing means the application reached us, so one provider's outage doesn't block applicants.
+    const [emailed, forwarded] = await Promise.all([
+      postJson(FORMSUBMIT_URL, { ...payload, _subject: subject }, { attempts: 2 }),
+      postJson(MAKE_WEBHOOK_URL, payload),
+    ])
 
-      if (response.ok) {
-        setIsSubmitted(true)
-      } else {
-        alert('There was an error submitting your application. Please try again.')
-      }
-    } catch {
-      alert('There was an error submitting your application. Please try again.')
-    } finally {
-      setIsSubmitting(false)
+    setIsSubmitting(false)
+    if (emailed || forwarded) {
+      setIsSubmitted(true)
+    } else {
+      setFailedMailto(buildMailto(CONTACT_EMAIL, subject, {
+        Name: payload.name,
+        Email: payload.email,
+        Role: roleOptions.find((option) => option.value === payload.role)?.label ?? payload.role,
+        Company: payload.company,
+        LinkedIn: payload.linkedin,
+        'Why do you belong in First Commits?': payload.why,
+        Referral: payload.referral,
+      }))
     }
   }
 
@@ -313,6 +313,12 @@ export default function Apply() {
               >
                 {isSubmitting ? 'Submitting...' : 'Submit Application'}
               </button>
+              {failedMailto && (
+                <p className={styles.submitError} role="alert">
+                  We couldn&apos;t submit your application. Please try again, or{' '}
+                  <a href={failedMailto}>email it to {CONTACT_EMAIL}</a> instead.
+                </p>
+              )}
               <p className={styles.reviewNote}>
                 Applications are reviewed by humans, we read every response! Questions? Reach out to community@firstcommits.com
               </p>

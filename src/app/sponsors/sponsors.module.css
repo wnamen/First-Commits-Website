@@ -425,3 +425,16 @@
     max-width: 220px;
   }
 }
+
+.submitError {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #a33a12;
+  text-align: center;
+  margin-top: var(--spacing-sm);
+}
+
+.submitError a {
+  color: inherit;
+  text-decoration: underline;
+}
